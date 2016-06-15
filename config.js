@@ -17,7 +17,7 @@ config = {
             client: 'mysql',
             connection: {
                 host     : process.env.OPENSHIFT_MYSQL_DB_HOST||'127.0.0.1',
-                user     : process.env.OPENSHIFT_MYSQL_DB_USER||'root',
+                user     : process.env.OPENSHIFT_MYSQL_DB_USERNAME||'root',
                 password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD||'',
                 database : process.env.OPENSHIFT_APP_NAME||'ghost_testing',
                 charset  : 'utf8'
