@@ -50,12 +50,22 @@ config = {
 
         // #### Database
         // Ghost supports sqlite3 (default), MySQL & PostgreSQL
+        //database: {
+        //    client: 'sqlite3',
+        //    connection: {
+        //        filename: path.join(__dirname, '/content/data/ghost-dev.db')
+        //    },
+        //    debug: false
+        //},
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost-dev.db')
-            },
-            debug: false
+                host     : process.env.OPENSHIFT_MYSQL_DB_HOST||'127.0.0.1',
+                user     : process.env.OPENSHIFT_MYSQL_DB_USER||'root',
+                password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD||'',
+                database : process.env.OPENSHIFT_APP_NAME||'ghost_testing',
+                charset  : 'utf8'
+            }
         },
         // #### Server
         // Can be host & port (default), or socket
