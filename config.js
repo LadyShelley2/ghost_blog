@@ -28,7 +28,7 @@ config = {
             port: process.env.NODE_PORT||'2368'
         },
         paths: {
-            contentPath: path.join(OPENSHIFT_DATA_DIR||__dirname, '/content/')
+            contentPath: path.join(process.env.OPENSHIFT_DATA_DIR||__dirname, '/content/')
         }
     },
 
