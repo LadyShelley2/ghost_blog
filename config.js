@@ -22,8 +22,8 @@ config = {
         },
 
         server: {
-            host: '127.0.0.1',
-            port: '2368'
+            host: process.env.NODE_IP||'127.0.0.1',
+            port: process.env.NODE_PORT||'2368'
         }
     },
 
