@@ -14,16 +14,21 @@ config = {
         url: 'http://my-ghost-blog.com',
         mail: {},
         database: {
-            client: 'sqlite3',
+            client: 'mysql',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
-            debug: false
+                host     : process.env.OPENSHIFT_MYSQL_DB_HOST||'127.0.0.1',
+                user     : process.env.OPENSHIFT_MYSQL_DB_USER||'root',
+                password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD||'',
+                database : process.env.OPENSHIFT_APP_NAME||'ghost_testing',
+                charset  : 'utf8'
+            }
         },
-
         server: {
             host: process.env.NODE_IP||'127.0.0.1',
             port: process.env.NODE_PORT||'2368'
+        },
+        paths: {
+            contentPath: path.join(OPENSHIFT_DATA_DIR||__dirname, '/content/')
         }
     },
 
@@ -49,23 +54,13 @@ config = {
         // ```
 
         // #### Database
-        // Ghost supports sqlite3 (default), MySQL & PostgreSQL
-        //database: {
-        //    client: 'sqlite3',
-        //    connection: {
-        //        filename: path.join(__dirname, '/content/data/ghost-dev.db')
-        //    },
-        //    debug: false
-        //},
+        //Ghost supports sqlite3 (default), MySQL & PostgreSQL
         database: {
-            client: 'mysql',
+            client: 'sqlite3',
             connection: {
-                host     : process.env.OPENSHIFT_MYSQL_DB_HOST||'127.0.0.1',
-                user     : process.env.OPENSHIFT_MYSQL_DB_USER||'root',
-                password : process.env.OPENSHIFT_MYSQL_DB_PASSWORD||'',
-                database : process.env.OPENSHIFT_APP_NAME||'ghost_testing',
-                charset  : 'utf8'
-            }
+                filename: path.join(__dirname, '/content/data/ghost-dev.db')
+            },
+            debug: false
         },
         // #### Server
         // Can be host & port (default), or socket
