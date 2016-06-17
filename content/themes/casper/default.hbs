@@ -19,7 +19,7 @@
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-
+	
     {{!-- Ghost outputs important style and meta data with this tag --}}
     {{ghost_head}}
 </head>
@@ -49,6 +49,7 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     {{!-- The main JavaScript file for Casper --}}
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+    {{!--MathJax--}}
     <script type="text/x-mathjax-config;executed=true">
 		MathJax.Hub.Config({
 		tex2jax: {
@@ -57,6 +58,10 @@
 		});
 	</script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    {{!--social-share--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.14/css/share.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.14/js/social-share.min.js"></script>
 
 
 </body>
